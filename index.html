@@ -244,6 +244,11 @@
 
         <!-- Scripts -->
         <script>
+            // Force HTTPS redirect
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+            }
+
             window.addEventListener("load", function () {
                 document.body.className = document.body.className.replace(
                     /\bis-loading\b/,
